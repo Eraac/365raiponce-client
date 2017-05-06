@@ -15,8 +15,8 @@ type QueryFilter struct {
 	filters    filters
 	orders     orders
 	groups     groups
-	maxPerPage int
-	page       int
+	MaxPerPage int
+	Page       int
 }
 
 func NewFilter() *QueryFilter {
@@ -34,12 +34,12 @@ func (f *QueryFilter) buildQuery() string {
 	query += f.orders.buildQuery()
 	query += f.groups.buildQuery()
 
-	if f.page > 0 {
-		query += fmt.Sprintf("_page=%d&", f.page)
+	if f.Page > 0 {
+		query += fmt.Sprintf("_page=%d&", f.Page)
 	}
 
-	if f.maxPerPage > 0 {
-		query += fmt.Sprintf("_max_per_page=%d&", f.maxPerPage)
+	if f.MaxPerPage > 0 {
+		query += fmt.Sprintf("_max_per_page=%d&", f.MaxPerPage)
 	}
 
 	return query
